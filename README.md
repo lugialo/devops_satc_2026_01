@@ -1,6 +1,6 @@
 # Observações sobre a aula - 26/02
 
-## DevOps
+## DevOps e SRE
 
 DevOps é uma metodologia de cultura, automação e design de plataforma que tem como objetivo agregar mais valor aos negócios e aumentar a capacidade de resposta às mudanças por meio de entregar de serviços rápidas e de alta qualidade.
 
