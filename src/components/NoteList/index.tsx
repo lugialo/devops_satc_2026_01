@@ -1,7 +1,7 @@
 import type { JSX, ReactNode } from 'react';
 
 interface ListProps {
-    children: ReactNode;
+    readonly children: ReactNode;
 }
 
 export function NoteList({ children }: ListProps): JSX.Element {
