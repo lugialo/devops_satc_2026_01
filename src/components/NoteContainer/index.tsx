@@ -1,9 +1,10 @@
 import type { JSX } from "react";
-interface NoteProps {
-    title: string;
-    description?: string;
-    onClick?: () => void;
-}
+
+type NoteProps = Readonly<{
+    title: string
+    description?: string
+    onClick?: () => void
+}>
 
 export function NoteContainer({ title, description, onClick }: NoteProps): JSX.Element {
     return (
