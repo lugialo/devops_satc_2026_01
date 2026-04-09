@@ -7,10 +7,10 @@ interface NoteProps {
 
 export function NoteContainer({ title, description, onClick }: NoteProps): JSX.Element {
     return (
-        <div
+        <button
             onClick={onClick}
-            className="flex rounded-xl min-w-[136px] m-2 w-[95%] p-8 border border-solid border-indigo-500 cursor-pointer">
+            className="flex rounded-xl min-w-[136px] m-2 w-[95%] p-8 border border-solid border-indigo-500 cursor-pointer text-left">
             • {title} - {description || 'Sem descrição'}
-        </div>
+        </button>
     )
 }
