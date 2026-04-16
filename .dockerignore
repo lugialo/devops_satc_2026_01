@@ -1,0 +1,12 @@
+node_modules
+dist
+.git
+.env
+.env.*
+*.log
+README.md
+develop.md
+staging.md
+docker-compose.yml
+sonar-project.properties
+.DS_Store
