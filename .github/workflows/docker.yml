@@ -52,7 +52,7 @@ jobs:
             - name: Run Trivy vulnerability scanner
               env:
                   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-              uses: aquasecurity/trivy-action@master
+              uses: aquasecurity/trivy-action@1994662b5555670344cd84d29ed3cad4bd26f31c
               with:
                   scan-type: "image"
                   image-ref: "docker.io/$DOCKER_USERNAME/satc-devops:0.0.2"
