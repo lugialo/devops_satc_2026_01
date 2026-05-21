@@ -56,6 +56,11 @@ jobs:
       # - name: Pull image
       #   run: docker pull docker.io/${{ secrets.DOCKER_USERNAME }}/satc-devops:${{ github.sha }}
 
+      - name: Create k8s Kind Cluster
+        uses: helm/kind-action@v1.10.0
+        with:
+          cluster_name: cluster-satc
+
       - name: Load image into Kind
         run: kind load docker-image docker.io/${{ secrets.DOCKER_USERNAME }}/satc-devops:${{ github.sha }} --name cluster-satc
 
