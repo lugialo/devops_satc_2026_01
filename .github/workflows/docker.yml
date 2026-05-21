@@ -65,7 +65,11 @@ jobs:
         run: kind load docker-image docker.io/${{ secrets.DOCKER_USERNAME }}/satc-devops:${{ github.sha }} --name cluster-satc
 
       - name: Deploy to cluster
-        run: kubectl apply -f deployment.yaml
+        run: |
+          sed -i 's/##DOCKER_USERNAME##/${{ secrets.DOCKER_USERNAME }}/g' k8s/deployment.yaml
+          sed -i 's/##K8S_NAMESPACE##/default/g' k8s/deployment.yaml
+          sed -i 's/##K8S_TAG##/${{ github.sha }}/g' k8s/deployment.yaml
+          kubectl apply -f k8s/deployment.yaml
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
