@@ -32,11 +32,14 @@ jobs:
           cluster_name: ${{ vars.GKE_CLUSTER_NAME }}
           location: ${{ vars.GKE_CLUSTER_LOCATION }}
 
-      - name: Replace vars in deployment.yaml
+      - name: Replace vars in manifests
         run: |
           sed -i 's/##DOCKER_USERNAME##/${{ secrets.DOCKER_USERNAME }}/g' k8s/deployment.yaml
           sed -i 's/##K8S_NAMESPACE##/${{ vars.K8S_NAMESPACE }}/g' k8s/deployment.yaml
           sed -i 's/##K8S_TAG##/${{ github.sha }}/g' k8s/deployment.yaml
+          
+          sed -i 's/##DOCKER_USERNAME##/${{ secrets.DOCKER_USERNAME }}/g' k8s/ingress.yaml
+          sed -i 's/##K8S_NAMESPACE##/${{ vars.K8S_NAMESPACE }}/g' k8s/ingress.yaml
 
       - name: Criar namespace se nÃ£o existir
         run: |
